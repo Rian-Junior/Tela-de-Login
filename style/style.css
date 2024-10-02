@@ -1,4 +1,4 @@
-/* Reset e configurações iniciais */
+/* Remover margens e paddings padrão */
 * {
     margin: 0;
     padding: 0;
@@ -6,25 +6,27 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* Definir o corpo da página */
 body {
     background-color: #c9d6ff;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff); /* Aplicar o gradiente */
-    min-height: 100vh; /* Certificar que o body cubra a altura total */
-    margin: 0; /* Remover margens */
-    padding: 0; /* Remover paddings */
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    min-height: 100vh; /* Para garantir que o body cubra a altura total */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Container principal */
+/* Container do formulário */
 .container {
     background: #fff;
     width: 450px;
     padding: 1.5rem;
     margin: 50px auto;
     border-radius: 10px;
-    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.9);
+    box-shadow: 0 20px 35px rgba(0, 0, 1, 0.1); /* Ajustar opacidade */
 }
 
-/* Títulos */
+/* Título do formulário */
 .form-title {
     font-size: 1.5rem;
     font-weight: bolder;
@@ -33,81 +35,64 @@ body {
     margin-bottom: 0.4rem;
 }
 
-/* Formulários */
-form {
-    margin: 0 2rem;
-}
-
 /* Grupos de entrada */
 .input-group {
-    padding: 1% 0;
     position: relative;
+    margin-bottom: 1.5rem; /* Espaçamento entre grupos */
 }
 
+/* Ícones dentro dos campos */
 .input-group i {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 50%; /* Centralizar verticalmente */
+    left: 10px; /* Posicionar à esquerda */
+    transform: translateY(-50%); /* Alinhar verticalmente */
     color: black;
 }
 
-/* Campos de entrada */
+/* Estilização dos inputs */
 input {
     width: 100%;
-    padding: 10px 10px 10px 40px;
+    padding: 12px 10px 12px 40px; /* Deixar espaço para ícones */
     border: none;
     border-bottom: 1px solid #757575;
     font-size: 15px;
 }
 
+/* Input focado */
 input:focus {
     outline: none;
     border-bottom: 2px solid hsl(327, 90%, 28%);
 }
 
-/* Placeholder */
+/* Placeholder dos inputs */
 input::placeholder {
-    color: transparent;
+    color: transparent; /* Ocultar placeholder para animação */
 }
 
-/* Rótulos */
+/* Rótulo do input */
 label {
-    color: #757575;
     position: absolute;
-    left: 40px;
-    top: -1.3rem;
-    cursor: auto;
-    transition: 0.3s ease all;
+    left: 40px; /* Posicionar à direita do ícone */
+    top: 50%;
+    transform: translateY(-50%); /* Centralizar verticalmente */
+    color: #757575;
+    pointer-events: none; /* Evitar clique no label */
+    transition: 0.3s ease all; /* Animação suave */
 }
 
+/* Animação do rótulo */
 input:focus ~ label,
 input:not(:placeholder-shown) ~ label {
-    top: -30px;
+    top: -15px; /* Mover o label para cima */
     color: hsl(327, 90%, 28%);
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* Reduzir o tamanho do texto */
 }
 
-/* Links de recuperação de senha */
-.recovery {
-    text-align: right;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.recovery a {
-    text-decoration: none;
-    color: rgb(125, 125, 235);
-}
-
-.recovery a:hover {
-    color: blue;
-    text-decoration: underline;
-}
-
-/* Botões */
+/* Botão de submissão */
 .btn {
     font-size: 1.1rem;
-    padding: 8px 0;
+    padding: 10px 0;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -122,18 +107,7 @@ input:not(:placeholder-shown) ~ label {
     background: black;
 }
 
-/* Separador "OR" */
-.or {
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    text-align: center;
-}
-
-/* Ícones */
-.icons {
-    text-align: center;
-}
-
+/* Estilização para ícones de login com Google e Facebook */
 .icons i {
     color: rgb(125, 125, 235);
     padding: 0.8rem 1.5rem;
@@ -151,24 +125,11 @@ input:not(:placeholder-shown) ~ label {
     border: 2px solid rgb(125, 125, 235);
 }
 
-/* Links */
+/* Links para alternar entre telas de login e registro */
 .links {
     display: flex;
     justify-content: space-around;
     padding: 0 4rem;
     margin-top: 0.9rem;
     font-weight: bold;
-}
-
-button {
-    color: rgb(125, 125, 235);
-    border: none;
-    background-color: transparent;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-button:hover {
-    text-decoration: underline;
-    color: blue;
 }
